@@ -1,7 +1,9 @@
 
 # vue3-editor-js
 
-vue3-editor-js is editorjs wrapper component. At the same time, through vue-demi support for vue2 and vue3, Don't worry about the vue environment.
+vue3-editor-js is editorjs wrapper component. 
+
+At the same time, through vue-demi support for vue2 and vue3,Don't worry about the vue environment.
 
 Please review this first. 
 * https://editorjs.io/
