@@ -4,7 +4,7 @@
       <button @click="clickFn">getEditorData</button>
     </div>
 
-    <vue-editor ref="editor" :config="config" @change="changeFn" :initialized="initializedFn"></vue-editor>
+    <vue-editor ref="editor" :config="config" @change="changeFn" :initEditorMethod="initializedFn"></vue-editor>
   </div>
   
 </template>
@@ -22,8 +22,6 @@ import Quote from '@editorjs/quote'
 import Table from '@editorjs/table'
 import CodeTool from '@editorjs/code'
 import TextVariantTune from '@editorjs/text-variant-tune';
-
-import VueEditor from './components/Editor';
 
 const editor = ref(null)
 const config = ref({
