@@ -30,7 +30,7 @@ import Editor from 'vue3-editor-js'
 
 
 // in main.js...
-import { VueEditor } from './components/Editor'
+import { VueEditor } from 'vue3-editor-js'
 const app = createApp(App)
 app.use(VueEditor)
 app.mount('#app')
