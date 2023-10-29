@@ -20,7 +20,7 @@ const props = defineProps({
       type: Object,
       default: () => ({})
     },
-    initialized: {
+    initEditorMethod: {
       type: Function,
       default: () => ({})
     }
@@ -28,7 +28,7 @@ const props = defineProps({
 
 const emit = defineEmits(['change', 'ready'])
 
-const { config, data, initialized } = toRefs(props)
+const { config, data, initEditorMethod } = toRefs(props)
 const vueEditor = ref(null)
 const editor = ref(null)
 
@@ -45,19 +45,22 @@ onMounted(() => {
     editor.value.isReady
     .then(() => {
         /** Do anything you need after editor initialization */
-        initialized.value(editor.value)
+        emit('ready')
+        initEditorMethod.value(editor.value)
     })
     .catch((reason) => {
         console.log(`Editor.js initialization failed because of ${reason}`)
     });
 })
 
+// save opt to get data.
 function getOutData() {
     if (!editor.value) return null
 
     return editor.value.save()
 }
 
+// expose save data of method
 defineExpose({
     getOutData
 })

@@ -1,10 +1,10 @@
 <template>
   <div class="wrap">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
+    <div class="opt-area">
+      <button @click="clickFn">getEditorData</button>
+    </div>
+
     <vue-editor ref="editor" :config="config" @change="changeFn" :initialized="initializedFn"></vue-editor>
-    <button @click="clickFn">1111</button>
   </div>
   
 </template>
@@ -96,6 +96,11 @@ function initializedFn(editor) {
 .wrap {
   width: 100%;
   height: 100%;
+
+  text-align: center;
+}
+.opt-area {
+  margin-bottom: 30px;
 }
 .logo {
   height: 6em;

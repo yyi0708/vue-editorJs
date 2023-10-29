@@ -1,15 +1,43 @@
 {
-  "name": "vue-editor",
-  "private": true,
-  "version": "0.0.0",
+  "name": "vue3-editor-js",
+  "version": "0.1.0",
   "type": "module",
+  "description": "editor.js for Vue2 & Vue3 users",
+  "exports": {
+    ".": {
+      "require": "dist/vue-editor.cjs",
+      "import": "dist/vue-editor.js"
+    }
+  },
   "scripts": {
     "dev2": "vue-demi-switch 2 vue2 && vite -c vite.vue2.config.js --force",
     "dev": "vue-demi-switch 3 && vite -c vite.config.js --force",
-    "build": "vue-demi-switch 3 && vite build",
+    "build": "node scripts/build-lib.js",
     "storybook": "vue-demi-switch 3 && storybook dev -p 6006",
-    "build-storybook": "vue-demi-switch 3 && storybook build"
+    "build-storybook": "vue-demi-switch 3 && storybook build",
+    "publish:next": "pnpm build && npm publish --access public --tag next",
+    "publish:npm": "pnpm build && npm publish --access public"
   },
+  "author": "yi.yang",
+  "packageManager": "pnpm",
+  "engines": {
+    "node": ">= 16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yyi0708/vue-editorJs.git"
+  },
+  "keywords": [
+    "editor",
+    "editorjs",
+    "vue.js",
+    "vue-editor",
+    "vue-composition-api",
+    "vue3",
+    "vue2",
+    "vue2 & vue3",
+    "vue-demi"
+  ],
   "dependencies": {
     "@editorjs/editorjs": "^2.28.2",
     "vue-demi": "^0.14.6"
@@ -53,5 +81,10 @@
     "@vue/composition-api": {
       "optional": true
     }
-  }
+  },
+  "files": [
+    "dist/vue-editor.cjs",
+    "dist/vue-editor.js"
+  ],
+  "jsdelivr": "dist/dist/vue-editor.js"
 }
