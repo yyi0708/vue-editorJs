@@ -12,11 +12,11 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
                 fileName: 'vue-editor',
                 formats: ['es', 'cjs']
             },
-            outDir: resolve(__dirname, '../dist'),
-            rollupOptions: {
-                external: ['vue-demi']
-            }
+            outDir: resolve(__dirname, '../dist')
         },
+        optimizeDeps: {
+            exclude: ['vue-demi']
+        }
     })
 
     process.exit()

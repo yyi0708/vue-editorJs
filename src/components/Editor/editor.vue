@@ -1,15 +1,16 @@
 <template>
-    <div ref="vueEditor"></div>
+    <div :id="holder"></div>
 </template>
 
 <script setup>
 import { ref, defineProps, toRefs, onMounted, defineEmits, defineExpose } from 'vue-demi'
 import EditorJS from '@editorjs/editorjs';
 
+const holderId = 'editorjs'
 const props = defineProps({
-    placeholder: {
-        type: String,
-        default: 'Start your creative journey！'
+    holder: {
+      type: String,
+      default: () => holderId
     },
     config: {
       type: Object,
@@ -25,16 +26,14 @@ const props = defineProps({
       default: () => ({})
     }
 })
-
 const emit = defineEmits(['change', 'ready'])
 
-const { config, data, initEditorMethod } = toRefs(props)
-const vueEditor = ref(null)
+const { holder, config, data, initEditorMethod } = toRefs(props)
 const editor = ref(null)
 
 onMounted(() => {
     editor.value = new EditorJS({
-        holder: vueEditor.value,
+        holder: holder.value || holderId,
         ...config.value,
         data: data.value,
         onChange: (api, event) => {
