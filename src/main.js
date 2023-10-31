@@ -1,6 +1,6 @@
 import { isVue3, Vue, createApp } from 'vue-demi'
 import App from './App.vue'
-import { VueEditor } from './components/Editor'
+import { VueEditor } from './components/Editor/index.js'
 
 console.log('[isVue3]:', isVue3)
 console.log('[Vue]:', Vue)
